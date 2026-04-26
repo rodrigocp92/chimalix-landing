@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Chimalix · Tu Entrada Segura</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#0A84FF;--cyan:#30D5C8;--dark:#121212}
+body{font-family:'Open Sans',sans-serif;color:#121212;background:#fff;overflow-x:hidden}
+h1,h2,h3,h4,.logo-name{font-family:'Montserrat',sans-serif}
+.chi-grad-text{background:linear-gradient(135deg,#0A84FF,#30D5C8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(10,132,255,.12);padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-name{font-size:1.3rem;font-weight:800;color:#121212;letter-spacing:-.02em}
+.logo-tag{font-size:.55rem;font-weight:600;color:#0A84FF;text-transform:uppercase;letter-spacing:.08em;display:block;margin-top:-2px}
+.lang-sw{display:flex;gap:4px}
+.lang-btn{border:none;background:transparent;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:700;padding:5px 9px;border-radius:20px;color:#666;transition:all .2s}
+.lang-btn.active{background:linear-gradient(135deg,#0A84FF,#30D5C8);color:#fff}
+.nav-cta{background:linear-gradient(135deg,#0A84FF,#30D5C8);color:#fff;border:none;padding:9px 22px;border-radius:24px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;cursor:pointer;transition:filter .2s;white-space:nowrap}
+.nav-cta:hover{filter:brightness(1.1)}
+.hero{min-height:100vh;background:#08080F;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;pointer-events:none}
+.blob1{width:500px;height:500px;background:#0A84FF;top:-80px;left:-100px}
+.blob2{width:400px;height:400px;background:#30D5C8;bottom:-60px;right:-80px}
+.blob3{width:300px;height:300px;background:#4f46e5;top:40%;left:40%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:30px;padding:7px 18px;color:rgba(255,255,255,.85);font-size:.75rem;font-weight:600;font-family:'Montserrat',sans-serif;letter-spacing:.05em;text-transform:uppercase;margin-bottom:28px}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#0A84FF,#30D5C8);flex-shrink:0}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-.03em;max-width:850px;margin:0 auto 24px}
+.hero p{font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 44px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,#0A84FF,#30D5C8);color:#fff;border:none;padding:15px 36px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:filter .2s,transform .15s}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:14px 32px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.95rem;cursor:pointer;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
+.hero-stats{display:flex;gap:40px;justify-content:center;margin-top:64px;flex-wrap:wrap}
+.hero-stat strong{display:block;font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(135deg,#0A84FF,#30D5C8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat span{font-size:.78rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-top:2px;display:block}
+.trust-bar{background:#F4F8FF;padding:20px 5%;display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;border-bottom:1px solid rgba(10,132,255,.1)}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:#444;font-family:'Montserrat',sans-serif}
+.trust-icon{width:18px;height:18px;flex-shrink:0}
+section{padding:90px 5%}
+.section-label{font-size:.72rem;font-weight:700;font-family:'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#0A84FF;margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#121212;margin-bottom:16px}
+.section-sub{font-size:1.05rem;color:#555;max-width:580px;line-height:1.7}
+.center{text-align:center}
+.center .section-sub{margin:0 auto}
+.how-bg{background:#08080F}
+.how-bg .section-title{color:#fff}
+.how-bg .section-label{color:#30D5C8}
+.how-bg .section-sub{color:rgba(255,255,255,.55)}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:52px}
+.step-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:24px 20px;transition:border-color .3s,transform .2s}
+.step-card:hover{border-color:rgba(10,132,255,.4);transform:translateY(-3px)}
+.step-num{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#0A84FF,#30D5C8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:10px}
+.step-actor{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:10px}
+.actor-buyer{background:rgba(48,213,200,.12);color:#30D5C8}
+.actor-seller{background:rgba(251,191,36,.12);color:#FBBF24}
+.actor-platform{background:rgba(10,132,255,.12);color:#60A5FA}
+.step-card h4{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:6px;line-height:1.3}
+.step-card p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
+.step-timer{font-size:.7rem;color:#FBBF24;margin-top:8px;font-weight:600;display:flex;align-items:center;gap:4px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:52px}
+.feat-card{border:1px solid rgba(10,132,255,.12);border-radius:20px;padding:32px 26px;transition:border-color .3s,box-shadow .3s}
+.feat-card:hover{border-color:rgba(10,132,255,.35);box-shadow:0 8px 40px rgba(10,132,255,.08)}
+.feat-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#0A84FF,#30D5C8);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.feat-card h3{font-size:1.1rem;font-weight:700;color:#121212;margin-bottom:10px}
+.feat-card p{font-size:.9rem;color:#555;line-height:1.6}
+.escrow-section{background:#F7FBFF;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:90px 8%}
+@media(max-width:768px){.escrow-section{grid-template-columns:1fr;gap:40px}}
+.escrow-visual{background:#fff;border:1.5px solid rgba(10,132,255,.15);border-radius:24px;padding:32px;box-shadow:0 20px 60px rgba(10,132,255,.06)}
+.escrow-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(10,132,255,.08)}
+.escrow-row:last-child{border-bottom:none}
+.escrow-circle{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0A84FF,#30D5C8);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.8rem;color:#fff}
+.escrow-info{flex:1}
+.escrow-info strong{display:block;font-size:.85rem;font-weight:600;color:#121212;margin-bottom:1px}
+.escrow-info span{font-size:.75rem;color:#888}
+.escrow-tag{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:10px}
+.testi-bg{background:#08080F;padding:90px 5%}
+.testi-bg .section-title{color:#fff}
+.testi-bg .section-label{color:#30D5C8}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:48px}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:26px 22px}
+.stars{color:#FBBF24;font-size:1rem;margin-bottom:12px}
+.testi-card p{font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0A84FF,#30D5C8);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.75rem;color:#fff;flex-shrink:0}
+.testi-author strong{display:block;font-size:.82rem;font-weight:600;color:#fff}
+.testi-author span{font-size:.72rem;color:rgba(255,255,255,.4)}
+.venues-wrap{margin-top:44px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.venue-pill{background:#F0F7FF;border:1px solid rgba(10,132,255,.15);border-radius:30px;padding:8px 16px;font-size:.8rem;font-weight:600;color:#0A84FF;font-family:'Montserrat',sans-serif}
+.cta-section{background:linear-gradient(135deg,#0A84FF 0%,#30D5C8 100%);padding:90px 5%;text-align:center}
+.cta-section h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;letter-spacing:-.02em;max-width:700px;margin:0 auto 20px}
+.cta-section p{font-size:1.05rem;color:rgba(255,255,255,.8);max-width:480px;margin:0 auto 40px}
+.btn-white{background:#fff;color:#0A84FF;border:none;padding:15px 40px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+footer{background:#08080F;padding:52px 5% 36px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+.footer-brand p{font-size:.85rem;color:rgba(255,255,255,.4);max-width:280px;margin-top:10px;line-height:1.6}
+.footer-links h5{font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:14px}
+.footer-links a{display:block;color:rgba(255,255,255,.6);font-size:.85rem;text-decoration:none;margin-bottom:8px;transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.25)}
+svg.icon{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:640px){nav{padding:0 4%}.hero{padding:110px 5% 70px}.trust-bar{gap:18px}.escrow-section{padding:70px 5%}.footer-top{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="#">
+    <svg width="36" height="42" viewBox="0 0 90 108"><defs><linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A84FF"/><stop offset="100%" stop-color="#30D5C8"/></linearGradient></defs><path d="M45 4 L84 17 L84 60 Q84 92 45 106 Q6 92 6 60 L6 17 Z" fill="none" stroke="url(#lg1)" stroke-width="3.5" stroke-linejoin="round"/><path d="M45 19 L73 29 L73 60 Q73 82 45 94 Q17 82 17 60 L17 29 Z" fill="none" stroke="url(#lg1)" stroke-width="2.5" stroke-linejoin="round"/><path d="M63 37 A22 22 0 1 0 63 73" fill="none" stroke="url(#lg1)" stroke-width="9" stroke-linecap="round"/><circle cx="45" cy="53" r="6" fill="url(#lg1)"/><polygon points="42,58 48,58 50.5,67 39.5,67" fill="url(#lg1)"/></svg>
+    <div><span class="logo-name">CHIMALIX</span><span class="logo-tag" data-i18n="tagline">Tu Entrada Segura</span></div>
+  </a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+    <button class="nav-cta" data-i18n="nav_cta">Entrar a la plataforma</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-blob blob1"></div><div class="hero-blob blob2"></div><div class="hero-blob blob3"></div>
+  <div style="position:relative;z-index:1;width:100%">
+    <div class="hero-badge"><div class="badge-dot"></div><span data-i18n="hero_badge">FIFA World Cup 2026™ · Escrow garantizado</span></div>
+    <h1 data-i18n="hero_h1">Tu boleto al Mundial.<br/><span class="chi-grad-text">Sin riesgos. Sin sorpresas.</span></h1>
+    <p data-i18n="hero_p">Compra y vende boletos para el FIFA World Cup 2026™ con protección escrow de 8 pasos.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" data-i18n="hero_btn1">Explorar boletos</button>
+      <button class="btn-ghost" data-i18n="hero_btn2">¿Cómo funciona?</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>16</strong><span data-i18n="stat1">Estadios</span></div>
+      <div class="hero-stat"><strong>48</strong><span data-i18n="stat2">Selecciones</span></div>
+      <div class="hero-stat"><strong>104</strong><span data-i18n="stat5">Partidos</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-i18n="trust1">Escrow verificado</span></div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span data-i18n="trust2">Sin cargos extra al comprador</span></div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-i18n="trust3">Boletos FIFA verificados</span></div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="trust4">Rastreo en tiempo real</span></div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="trust5">Vendedores calificados</span></div>
+</div>
+
+<section class="how-bg" id="como-funciona">
+  <div class="center">
+    <div class="section-label" data-i18n="how_label">Proceso protegido</div>
+    <h2 class="section-title" data-i18n="how_title">Escrow de 8 pasos.<br/>Tu dinero, seguro siempre.</h2>
+    <p class="section-sub" data-i18n="how_sub">Ni el vendedor recibe el dinero sin entregar el boleto, ni el comprador entrega el dinero sin recibirlo.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-num">01</div><span class="step-actor actor-buyer" data-i18n="role_buyer">Comprador</span><h4 data-i18n="s1_title">Compromiso de compra</h4><p data-i18n="s1_desc">El comprador se compromete formalmente a la transacción.</p></div>
+    <div class="step-card"><div class="step-num">02</div><span class="step-actor actor-seller" data-i18n="role_seller">Vendedor</span><h4 data-i18n="s2_title">Envío de boletos a Chimalix</h4><p data-i18n="s2_desc">El vendedor transfiere los boletos vía plataforma FIFA oficial.</p></div>
+    <div class="step-card"><div class="step-num">03</div><span class="step-actor actor-platform" data-i18n="role_platform">Chimalix</span><h4 data-i18n="s3_title">Confirmamos recepción</h4><p data-i18n="s3_desc">Verificamos los boletos en nuestra cuenta custodio.</p></div>
+    <div class="step-card"><div class="step-num">04</div><span class="step-actor actor-buyer" data-i18n="role_buyer">Comprador</span><h4 data-i18n="s4_title">Transferencia del pago</h4><p data-i18n="s4_desc">El comprador tiene 2 horas para transferir o pagar con tarjeta.</p><div class="step-timer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="timer_2h">2 horas límite</span></div></div>
+    <div class="step-card"><div class="step-num">05</div><span class="step-actor actor-platform" data-i18n="role_platform">Chimalix</span><h4 data-i18n="s5_title">Confirmamos fondos</h4><p data-i18n="s5_desc">Verificamos el comprobante de pago recibido.</p></div>
+    <div class="step-card"><div class="step-num">06</div><span class="step-actor actor-platform" data-i18n="role_platform">Chimalix</span><h4 data-i18n="s6_title">Enviamos los boletos</h4><p data-i18n="s6_desc">Transferimos los boletos directamente al comprador.</p></div>
+    <div class="step-card"><div class="step-num">07</div><span class="step-actor actor-buyer" data-i18n="role_buyer">Comprador</span><h4 data-i18n="s7_title">Confirmación de recepción</h4><p data-i18n="s7_desc">El comprador confirma haber recibido correctamente los boletos.</p><div class="step-timer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="timer_2h">2 horas límite</span></div></div>
+    <div class="step-card"><div class="step-num">08</div><span class="step-actor actor-seller" data-i18n="role_seller">Vendedor</span><h4 data-i18n="s8_title">Pago liberado al vendedor</h4><p data-i18n="s8_desc">El vendedor recibe el pago neto en hasta 5 días hábiles.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="center">
+    <div class="section-label" data-i18n="feat_label">Por qué Chimalix</div>
+    <h2 class="section-title" data-i18n="feat_title">Diseñado para la tranquilidad de todos</h2>
+    <p class="section-sub" data-i18n="feat_sub">Compradores y vendedores protegidos en cada paso del proceso.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card"><div class="feat-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 data-i18n="f1_title">Precio final garantizado</h3><p data-i18n="f1_desc">El precio que ves es el precio que pagas. Sin cargos sorpresa para el comprador.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 data-i18n="f2_title">Rastreo en tiempo real</h3><p data-i18n="f2_desc">Sigue el estado exacto de tu transacción en cada uno de los 8 pasos del proceso.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg></div><h3 data-i18n="f3_title">Boletos 100% verificados</h3><p data-i18n="f3_desc">Todos los boletos pasan por nuestra custodia antes de que el comprador pague.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div><h3 data-i18n="f4_title">Múltiples formas de pago</h3><p data-i18n="f4_desc">Paga con tarjeta de crédito, débito o transferencia bancaria.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 data-i18n="f5_title">Vendedores calificados</h3><p data-i18n="f5_desc">Sistema de reputación con calificaciones verificadas por transacción completada.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3 data-i18n="f6_title">Mapa interactivo del estadio</h3><p data-i18n="f6_desc">Visualiza exactamente dónde están tus asientos por categoría y sección.</p></div>
+  </div>
+</section>
+
+<div class="escrow-section">
+  <div>
+    <div class="section-label" data-i18n="esc_label">Seguridad total</div>
+    <h2 class="section-title" data-i18n="esc_title">Tu dinero no se mueve hasta que tu boleto llegue.</h2>
+    <p class="section-sub" style="margin-bottom:28px" data-i18n="esc_desc">Chimalix actúa como árbitro neutral. Nadie pierde, todos ganan confianza.</p>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#333"><div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#0A84FF,#30D5C8);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="esc_p1">Vendedor recibe su dinero sólo si el comprador confirma el boleto</span></div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#333"><div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#0A84FF,#30D5C8);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="esc_p2">Comprador paga sólo cuando el boleto ya está en custodia de Chimalix</span></div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#333"><div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#0A84FF,#30D5C8);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span data-i18n="esc_p3">Chimalix cobra comisión sólo al vendedor, nunca al comprador</span></div>
+    </div>
+  </div>
+  <div class="escrow-visual">
+    <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:.85rem;color:#121212;margin-bottom:18px;display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-i18n="esc_card_title">Flujo de la transacción</span></div>
+    <div class="escrow-row"><div class="escrow-circle">1</div><div class="escrow-info"><strong data-i18n="s1_title">Compromiso de compra</strong><span data-i18n="role_buyer_tag">Comprador</span></div><span class="escrow-tag" style="background:#EFF8FF;color:#0A84FF" data-i18n="tag_active">Activo</span></div>
+    <div class="escrow-row"><div class="escrow-circle">2</div><div class="escrow-info"><strong data-i18n="s2_title_short">Envío de boletos</strong><span data-i18n="role_seller_tag">Vendedor → Chimalix</span></div><span class="escrow-tag" style="background:#FFF8EC;color:#D97706" data-i18n="tag_pending">Pendiente</span></div>
+    <div class="escrow-row"><div class="escrow-circle">3</div><div class="escrow-info"><strong data-i18n="s3_title_short">Verificación boletos</strong><span data-i18n="role_platform_tag">Chimalix</span></div><span class="escrow-tag" style="background:#FFF8EC;color:#D97706" data-i18n="tag_pending">Pendiente</span></div>
+    <div class="escrow-row"><div class="escrow-circle">4</div><div class="escrow-info"><strong data-i18n="s4_title_short">Pago del comprador</strong><span data-i18n="role_buyer_tag2">Comprador · 2h</span></div><span class="escrow-tag" style="background:#FFF8EC;color:#D97706" data-i18n="tag_pending">Pendiente</span></div>
+    <div class="escrow-row"><div class="escrow-circle">5-6</div><div class="escrow-info"><strong data-i18n="s56_title">Fondos confirmados + Envío</strong><span data-i18n="role_platform_tag">Chimalix</span></div><span class="escrow-tag" style="background:#FFF8EC;color:#D97706" data-i18n="tag_pending">Pendiente</span></div>
+    <div class="escrow-row"><div class="escrow-circle">7-8</div><div class="escrow-info"><strong data-i18n="s78_title">Confirmación + Pago vendedor</strong><span data-i18n="role_final_tag">Comprador + Chimalix</span></div><span class="escrow-tag" style="background:#F0FDF4;color:#16A34A" data-i18n="tag_final">Final</span></div>
+  </div>
+</div>
+
+<section style="background:#F7FBFF;text-align:center">
+  <div class="section-label" data-i18n="venues_label">Cobertura total</div>
+  <h2 class="section-title" data-i18n="venues_title">16 estadios. 3 países. Un solo lugar.</h2>
+  <p class="section-sub center" data-i18n="venues_sub">Encuentra boletos para todos los partidos del FIFA World Cup 2026™.</p>
+  <div class="venues-wrap">
+    <span class="venue-pill">🇲🇽 Ciudad de México</span><span class="venue-pill">🇲🇽 Guadalajara</span><span class="venue-pill">🇲🇽 Monterrey</span>
+    <span class="venue-pill">🇺🇸 Dallas</span><span class="venue-pill">🇺🇸 Los Ángeles</span><span class="venue-pill">🇺🇸 Miami</span>
+    <span class="venue-pill">🇺🇸 Nueva York/NJ</span><span class="venue-pill">🇺🇸 Houston</span><span class="venue-pill">🇺🇸 Atlanta</span>
+    <span class="venue-pill">🇺🇸 Boston</span><span class="venue-pill">🇺🇸 Seattle</span><span class="venue-pill">🇺🇸 San Francisco</span>
+    <span class="venue-pill">🇺🇸 Filadelfia</span><span class="venue-pill">🇺🇸 Kansas City</span>
+    <span class="venue-pill">🇨🇦 Toronto</span><span class="venue-pill">🇨🇦 Vancouver</span>
+  </div>
+</section>
+
+<div class="testi-bg">
+  <div class="center">
+    <div class="section-label" data-i18n="testi_label">Comunidad</div>
+    <h2 class="section-title" data-i18n="testi_title">Lo que dicen nuestros usuarios</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="stars">★★★★★</div><p data-i18n="t1_quote">"Compré 2 boletos para México vs Argentina. El proceso de 8 pasos me dio total confianza."</p><div class="testi-author"><div class="testi-avatar">RG</div><div><strong>Rodrigo G.</strong><span data-i18n="t1_loc">Ciudad de México</span></div></div></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p data-i18n="t2_quote">"As a seller, I received my payment within 5 business days. The platform is transparent."</p><div class="testi-author"><div class="testi-avatar">PD</div><div><strong>Philippe D.</strong><span data-i18n="t2_loc">Paris, Francia</span></div></div></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p data-i18n="t3_quote">"J'ai trouvé des places en Cat 1 pour la finale. Le suivi en temps réel m'a rassuré."</p><div class="testi-author"><div class="testi-avatar">ML</div><div><strong>Marie L.</strong><span data-i18n="t3_loc">Lyon, Francia</span></div></div></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p data-i18n="t4_quote">"Vendí 4 boletos para la semifinal en Dallas. Los compradores pagan, yo recibo."</p><div class="testi-author"><div class="testi-avatar">AH</div><div><strong>Ana H.</strong><span data-i18n="t4_loc">Monterrey, México</span></div></div></div>
+  </div>
+</div>
+
+<section style="background:#F7FBFF">
+  <div class="center" style="margin-bottom:48px">
+    <div class="section-label" data-i18n="faq_label">Preguntas frecuentes</div>
+    <h2 class="section-title" data-i18n="faq_title">Todo lo que necesitas saber</h2>
+    <p class="section-sub center" data-i18n="faq_sub">Aquí están las respuestas más comunes sobre Chimalix.</p>
+  </div>
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:10px" id="faq-list"></div>
+</section>
+
+<div class="cta-section">
+  <h2 data-i18n="cta_title">¿Listo para vivir el Mundial?</h2>
+  <p data-i18n="cta_sub">Únete a miles de compradores y vendedores que confían en Chimalix.</p>
+  <button class="btn-white" data-i18n="cta_btn">Explorar boletos ahora</button>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+        <svg width="30" height="36" viewBox="0 0 90 108"><defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A84FF"/><stop offset="100%" stop-color="#30D5C8"/></linearGradient></defs><path d="M45 4 L84 17 L84 60 Q84 92 45 106 Q6 92 6 60 L6 17 Z" fill="none" stroke="url(#lg2)" stroke-width="3.5" stroke-linejoin="round"/><path d="M45 19 L73 29 L73 60 Q73 82 45 94 Q17 82 17 60 L17 29 Z" fill="none" stroke="url(#lg2)" stroke-width="2.5" stroke-linejoin="round"/><path d="M63 37 A22 22 0 1 0 63 73" fill="none" stroke="url(#lg2)" stroke-width="9" stroke-linecap="round"/><circle cx="45" cy="53" r="6" fill="url(#lg2)"/><polygon points="42,58 48,58 50.5,67 39.5,67" fill="url(#lg2)"/></svg>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.15rem;letter-spacing:-.02em">CHIMALIX</span>
+      </div>
+      <p data-i18n="footer_desc">Tu entrada segura al FIFA World Cup 2026™. Escrow verificado.</p>
+    </div>
+    <div class="footer-links"><h5 data-i18n="footer_col1">Plataforma</h5><a href="#" data-i18n="fl1">Comprar boletos</a><a href="#" data-i18n="fl2">Vender boletos</a><a href="#" data-i18n="fl3">Mis transacciones</a></div>
+    <div class="footer-links"><h5 data-i18n="footer_col2">Información</h5><a href="#" data-i18n="fl4">Cómo funciona</a><a href="#" data-i18n="fl5">Seguridad</a><a href="#" data-i18n="fl6">Preguntas frecuentes</a></div>
+    <div class="footer-links"><h5 data-i18n="footer_col3">Soporte</h5><a href="#" data-i18n="fl7">Contacto</a><a href="#" data-i18n="fl8">Términos de servicio</a><a href="#" data-i18n="fl9">Privacidad</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Chimalix. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
+    <p data-i18n="footer_disclaimer">FIFA World Cup 2026™ es marca registrada de FIFA. Chimalix no es afiliado oficial de FIFA.</p>
+  </div>
+</footer>
+
+<script>
+// ── All strings use backtick template literals to avoid quote conflicts ────
+const LANGS = {
+  es: {
+    tagline:`Tu Entrada Segura`,nav_cta:`Entrar a la plataforma`,hero_badge:`FIFA World Cup 2026™ · Escrow garantizado`,
+    hero_h1:`Tu boleto al Mundial.<br/><span class="chi-grad-text">Sin riesgos.<br/>Sin sorpresas.</span>`,
+    hero_p:`Compra y vende boletos para el FIFA World Cup 2026™ con protección escrow de 8 pasos. El precio publicado es el precio final.`,
+    hero_btn1:`Explorar boletos`,hero_btn2:`¿Cómo funciona?`,stat1:`Estadios`,stat2:`Selecciones`,stat5:`Partidos`,
+    trust1:`Escrow verificado`,trust2:`Sin cargos extra al comprador`,trust3:`Boletos FIFA verificados`,trust4:`Rastreo en tiempo real`,trust5:`Vendedores calificados`,
+    how_label:`Proceso protegido`,how_title:`Escrow de 8 pasos.<br/>Tu dinero, seguro siempre.`,
+    how_sub:`Ni el vendedor recibe el dinero sin entregar el boleto, ni el comprador entrega el dinero sin recibirlo. Chimalix actúa como árbitro neutral en todo momento.`,
+    role_buyer:`Comprador`,role_seller:`Vendedor`,role_platform:`Chimalix`,
+    s1_title:`Compromiso de compra`,s1_desc:`El comprador se compromete formalmente a la transacción.`,
+    s2_title:`Envío de boletos a Chimalix`,s2_desc:`El vendedor transfiere los boletos vía plataforma FIFA oficial.`,
+    s3_title:`Confirmamos recepción`,s3_desc:`Verificamos los boletos en nuestra cuenta custodio.`,
+    s4_title:`Transferencia del pago`,s4_desc:`El comprador tiene 2 horas para transferir o pagar con tarjeta.`,
+    s5_title:`Confirmamos fondos`,s5_desc:`Verificamos el comprobante de pago recibido.`,
+    s6_title:`Enviamos los boletos`,s6_desc:`Transferimos los boletos directamente al comprador.`,
+    s7_title:`Confirmación de recepción`,s7_desc:`El comprador confirma haber recibido correctamente los boletos.`,
+    s8_title:`Pago liberado al vendedor`,s8_desc:`El vendedor recibe el pago neto en hasta 5 días hábiles.`,
+    timer_2h:`2 horas límite`,feat_label:`Por qué Chimalix`,feat_title:`Diseñado para la tranquilidad de todos`,
+    feat_sub:`Compradores y vendedores protegidos en cada paso del proceso.`,
+    f1_title:`Precio final garantizado`,f1_desc:`El precio que ves es el precio que pagas. Sin cargos sorpresa para el comprador. La comisión va a cargo del vendedor.`,
+    f2_title:`Rastreo en tiempo real`,f2_desc:`Sigue el estado exacto de tu transacción en cada uno de los 8 pasos del proceso, con notificaciones y temporizadores en vivo.`,
+    f3_title:`Boletos 100% verificados`,f3_desc:`Todos los boletos pasan por nuestra custodia antes de que el comprador pague. Nunca pagas por algo que no existe.`,
+    f4_title:`Múltiples formas de pago`,f4_desc:`Paga con tarjeta de crédito, débito o transferencia bancaria. Proceso seguro con comprobación de fondos.`,
+    f5_title:`Vendedores calificados`,f5_desc:`Sistema de reputación con calificaciones verificadas. Conoce el historial y rating de cada vendedor antes de comprar.`,
+    f6_title:`Mapa interactivo del estadio`,f6_desc:`Visualiza exactamente dónde están tus asientos con nuestro mapa visual del estadio por categoría y sección.`,
+    esc_label:`Seguridad total`,esc_title:`Tu dinero no se mueve hasta que tu boleto llegue.`,
+    esc_desc:`Chimalix actúa como árbitro neutral entre comprador y vendedor. Nadie pierde, todos ganan confianza.`,
+    esc_p1:`Vendedor recibe su dinero sólo si el comprador confirma el boleto`,
+    esc_p2:`Comprador paga sólo cuando el boleto ya está en custodia de Chimalix`,
+    esc_p3:`Chimalix cobra comisión sólo al vendedor, nunca al comprador`,
+    esc_card_title:`Flujo de la transacción`,s2_title_short:`Envío de boletos`,s3_title_short:`Verificación boletos`,
+    s4_title_short:`Pago del comprador`,s56_title:`Fondos confirmados + Envío`,s78_title:`Confirmación + Pago vendedor`,
+    role_buyer_tag:`Comprador`,role_seller_tag:`Vendedor → Chimalix`,role_platform_tag:`Chimalix`,role_buyer_tag2:`Comprador · 2h`,role_final_tag:`Comprador + Chimalix`,
+    tag_active:`Activo`,tag_pending:`Pendiente`,tag_final:`Final`,
+    venues_label:`Cobertura total`,venues_title:`16 estadios. 3 países. Una sola pasión.`,
+    venues_sub:`Encuentra boletos para todos los partidos del FIFA World Cup 2026™, desde la fase de grupos hasta la gran final en Nueva York.`,
+    testi_label:`Comunidad`,testi_title:`Lo que dicen nuestros usuarios`,
+    t1_quote:`"Compré 2 boletos para México vs Argentina. El proceso de 8 pasos me dio total confianza. Pagué solo cuando vi que los boletos ya estaban con Chimalix."`,t1_loc:`Ciudad de México`,
+    t2_quote:`"Como vendedor, recibí mi pago en 5 días hábiles. La plataforma es transparente — los compradores confían y obtuve mi precio completo."`,t2_loc:`París, Francia`,
+    t3_quote:`"Encontré lugares en Cat 1 para la final a un precio justo. El seguimiento en tiempo real me tranquilizó en cada paso."`,t3_loc:`Lyon, Francia`,
+    t4_quote:`"Vendí 4 boletos para la semifinal en Dallas. La transparencia del proceso me convenció. Los compradores pagan, yo recibo."`,t4_loc:`Monterrey, México`,
+    cta_title:`¿Listo para vivir el Mundial?`,cta_sub:`Únete a miles de compradores y vendedores que confían en Chimalix para el evento deportivo más grande del mundo.`,cta_btn:`Explorar boletos ahora`,
+    faq_label:`Preguntas frecuentes`,faq_title:`Todo lo que necesitas saber`,faq_sub:`Aquí están las respuestas más comunes sobre Chimalix.`,
+    footer_col1:`Plataforma`,footer_col2:`Información`,footer_col3:`Soporte`,
+    fl1:`Comprar boletos`,fl2:`Vender boletos`,fl3:`Mis transacciones`,fl4:`Cómo funciona`,fl5:`Seguridad`,fl6:`Preguntas frecuentes`,fl7:`Contacto`,fl8:`Términos de servicio`,fl9:`Privacidad`,
+    footer_desc:`Tu entrada segura al FIFA World Cup 2026™. Escrow verificado. Precio final garantizado.`,
+    footer_rights:`Todos los derechos reservados.`,footer_disclaimer:`FIFA World Cup 2026™ es marca registrada de FIFA. Chimalix no es afiliado oficial de FIFA.`
+  },
+  en: {
+    tagline:`Your Secure Ticket`,nav_cta:`Enter platform`,hero_badge:`FIFA World Cup 2026™ · Guaranteed Escrow`,
+    hero_h1:`Your World Cup ticket.<br/><span class="chi-grad-text">No risk.<br/>No surprises.</span>`,
+    hero_p:`Buy and sell tickets for FIFA World Cup 2026™ with 8-step escrow protection. The listed price is the final price.`,
+    hero_btn1:`Explore tickets`,hero_btn2:`How does it work?`,stat1:`Stadiums`,stat2:`National teams`,stat5:`Matches`,
+    trust1:`Verified escrow`,trust2:`No extra charges for buyers`,trust3:`FIFA-verified tickets`,trust4:`Real-time tracking`,trust5:`Rated sellers`,
+    how_label:`Protected process`,how_title:`8-step escrow.<br/>Your money, always safe.`,
+    how_sub:`The seller doesn't receive money without delivering the ticket, and the buyer doesn't pay without receiving it. Chimalix acts as a neutral arbitrator at all times.`,
+    role_buyer:`Buyer`,role_seller:`Seller`,role_platform:`Chimalix`,
+    s1_title:`Purchase commitment`,s1_desc:`The buyer formally commits to the transaction.`,
+    s2_title:`Ticket transfer to Chimalix`,s2_desc:`The seller transfers tickets via the official FIFA platform.`,
+    s3_title:`We confirm receipt`,s3_desc:`We verify the tickets in our custodial account.`,
+    s4_title:`Payment transfer`,s4_desc:`The buyer has 2 hours to transfer or pay by card.`,
+    s5_title:`We confirm funds`,s5_desc:`We verify the proof of payment received.`,
+    s6_title:`We send the tickets`,s6_desc:`We transfer the tickets directly to the buyer.`,
+    s7_title:`Receipt confirmation`,s7_desc:`The buyer confirms having correctly received the tickets.`,
+    s8_title:`Payment released to seller`,s8_desc:`The seller receives the net payment within 5 business days.`,
+    timer_2h:`2 hour limit`,feat_label:`Why Chimalix`,feat_title:`Designed for everyone's peace of mind`,
+    feat_sub:`Buyers and sellers protected at every step of the process.`,
+    f1_title:`Guaranteed final price`,f1_desc:`The price you see is the price you pay. No surprise charges for the buyer. Commission is charged to the seller.`,
+    f2_title:`Real-time tracking`,f2_desc:`Track the exact status of your transaction at each of the 8 process steps, with live notifications and timers.`,
+    f3_title:`100% verified tickets`,f3_desc:`All tickets go through our custody before the buyer pays. You never pay for something that doesn't exist.`,
+    f4_title:`Multiple payment methods`,f4_desc:`Pay with credit card, debit card, or bank transfer. Secure process with fund verification before releasing tickets.`,
+    f5_title:`Rated sellers`,f5_desc:`Reputation system with verified ratings. Know the history and rating of each seller before buying.`,
+    f6_title:`Interactive stadium map`,f6_desc:`Visualize exactly where your seats are with our visual stadium map by category and section.`,
+    esc_label:`Total security`,esc_title:`Your money doesn't move until it's in our custody.`,
+    esc_desc:`Chimalix acts as a neutral arbitrator between buyer and seller. Nobody loses, everyone gains trust.`,
+    esc_p1:`Seller receives money only if the buyer confirms the ticket`,
+    esc_p2:`Buyer pays only when the ticket is already in Chimalix's custody`,
+    esc_p3:`Chimalix charges commission only to the seller, never to the buyer`,
+    esc_card_title:`Transaction flow`,s2_title_short:`Ticket delivery`,s3_title_short:`Ticket verification`,
+    s4_title_short:`Buyer payment`,s56_title:`Funds confirmed + Delivery`,s78_title:`Confirmation + Seller payment`,
+    role_buyer_tag:`Buyer`,role_seller_tag:`Seller → Chimalix`,role_platform_tag:`Chimalix`,role_buyer_tag2:`Buyer · 2h`,role_final_tag:`Buyer + Chimalix`,
+    tag_active:`Active`,tag_pending:`Pending`,tag_final:`Final`,
+    venues_label:`Full coverage`,venues_title:`16 stadiums. 3 countries. One single passion.`,
+    venues_sub:`Find tickets for all FIFA World Cup 2026™ matches, from group stage to the grand final in New York.`,
+    testi_label:`Community`,testi_title:`What our users say`,
+    t1_quote:`"I bought 2 tickets for Mexico vs Argentina. The 8-step process gave me total confidence. I only paid once I saw the tickets were already with Chimalix."`,t1_loc:`Mexico City`,
+    t2_quote:`"As a seller, I received my payment within 5 business days. The platform is transparent — buyers trust it and I got my full asking price."`,t2_loc:`Paris, France`,
+    t3_quote:`"I found Cat 1 seats for the final at a fair price. The real-time tracking reassured me at every step. No bad surprises."`,t3_loc:`Lyon, France`,
+    t4_quote:`"I sold 4 tickets for the Dallas semifinal. The transparency convinced me. Buyers pay, I receive. No headaches at all."`,t4_loc:`Monterrey, Mexico`,
+    cta_title:`Ready to experience the World Cup?`,cta_sub:`Join thousands of buyers and sellers who trust Chimalix for the world's biggest sporting event.`,cta_btn:`Explore tickets now`,
+    faq_label:`Frequently asked questions`,faq_title:`Everything you need to know`,faq_sub:`Here are the most common answers about Chimalix.`,
+    footer_col1:`Platform`,footer_col2:`Information`,footer_col3:`Support`,
+    fl1:`Buy tickets`,fl2:`Sell tickets`,fl3:`My transactions`,fl4:`How it works`,fl5:`Security`,fl6:`FAQ`,fl7:`Contact`,fl8:`Terms of service`,fl9:`Privacy`,
+    footer_desc:`Your secure ticket to FIFA World Cup 2026™. Verified escrow. Guaranteed final price.`,
+    footer_rights:`All rights reserved.`,footer_disclaimer:`FIFA World Cup 2026™ is a registered trademark of FIFA. Chimalix is not an official FIFA affiliate.`
+  },
+  fr: {
+    tagline:`Votre billet sécurisé`,nav_cta:`Accéder à la plateforme`,hero_badge:`FIFA World Cup 2026™ · Escrow garanti`,
+    hero_h1:`Votre billet pour la Coupe du Monde.<br/><span class="chi-grad-text">Sans risque.<br/>Sans surprises.</span>`,
+    hero_p:`Achetez et vendez des billets pour la FIFA World Cup 2026™ avec une protection escrow en 8 étapes. Le prix affiché est le prix final.`,
+    hero_btn1:`Explorer les billets`,hero_btn2:`Comment ça marche ?`,stat1:`Stades`,stat2:`Équipes nationales`,stat5:`Matchs`,
+    trust1:`Escrow vérifié`,trust2:`Aucun frais extra pour l'acheteur`,trust3:`Billets FIFA vérifiés`,trust4:`Suivi en temps réel`,trust5:`Vendeurs notés`,
+    how_label:`Processus protégé`,how_title:`Escrow en 8 étapes.<br/>Votre argent, toujours en sécurité.`,
+    how_sub:`Le vendeur ne reçoit pas l'argent sans livrer le billet, et l'acheteur ne paie pas sans le recevoir. Chimalix agit comme arbitre neutre à tout moment.`,
+    role_buyer:`Acheteur`,role_seller:`Vendeur`,role_platform:`Chimalix`,
+    s1_title:`Engagement d'achat`,s1_desc:`L'acheteur s'engage formellement à la transaction.`,
+    s2_title:`Transfert des billets à Chimalix`,s2_desc:`Le vendeur transfère les billets via la plateforme officielle FIFA.`,
+    s3_title:`Nous confirmons la réception`,s3_desc:`Nous vérifions les billets dans notre compte dépositaire.`,
+    s4_title:`Transfert du paiement`,s4_desc:`L'acheteur dispose de 2 heures pour transférer ou payer par carte.`,
+    s5_title:`Nous confirmons les fonds`,s5_desc:`Nous vérifions la preuve de paiement reçue.`,
+    s6_title:`Nous envoyons les billets`,s6_desc:`Nous transférons les billets directement à l'acheteur.`,
+    s7_title:`Confirmation de réception`,s7_desc:`L'acheteur confirme avoir correctement reçu les billets.`,
+    s8_title:`Paiement libéré au vendeur`,s8_desc:`Le vendeur reçoit le paiement net sous 5 jours ouvrables.`,
+    timer_2h:`Limite de 2 heures`,feat_label:`Pourquoi Chimalix`,feat_title:`Conçu pour la tranquillité de tous`,
+    feat_sub:`Acheteurs et vendeurs protégés à chaque étape du processus.`,
+    f1_title:`Prix final garanti`,f1_desc:`Le prix que vous voyez est le prix que vous payez. Aucun frais surprise pour l'acheteur. La commission est à la charge du vendeur.`,
+    f2_title:`Suivi en temps réel`,f2_desc:`Suivez le statut exact de votre transaction à chacune des 8 étapes du processus, avec des notifications et minuteries en direct.`,
+    f3_title:`Billets 100% vérifiés`,f3_desc:`Tous les billets passent par notre dépôt avant que l'acheteur paie. Vous ne payez jamais pour quelque chose qui n'existe pas.`,
+    f4_title:`Multiples moyens de paiement`,f4_desc:`Payez par carte de crédit, débit ou virement bancaire. Processus sécurisé avec vérification des fonds.`,
+    f5_title:`Vendeurs notés`,f5_desc:`Système de réputation avec notations vérifiées. Consultez l'historique et la note de chaque vendeur avant d'acheter.`,
+    f6_title:`Carte interactive du stade`,f6_desc:`Visualisez exactement où se trouvent vos places grâce à notre carte visuelle du stade par catégorie et section.`,
+    esc_label:`Sécurité totale`,esc_title:`Votre argent ne bouge pas jusqu'à ce qu'il soit en notre garde.`,
+    esc_desc:`Chimalix agit comme arbitre neutre entre acheteur et vendeur. Personne ne perd, tout le monde gagne en confiance.`,
+    esc_p1:`Le vendeur reçoit l'argent seulement si l'acheteur confirme le billet`,
+    esc_p2:`L'acheteur paie seulement quand le billet est en garde chez Chimalix`,
+    esc_p3:`Chimalix perçoit sa commission seulement du vendeur, jamais de l'acheteur`,
+    esc_card_title:`Flux de la transaction`,s2_title_short:`Livraison des billets`,s3_title_short:`Vérification des billets`,
+    s4_title_short:`Paiement de l'acheteur`,s56_title:`Fonds confirmés + Envoi`,s78_title:`Confirmation + Paiement vendeur`,
+    role_buyer_tag:`Acheteur`,role_seller_tag:`Vendeur → Chimalix`,role_platform_tag:`Chimalix`,role_buyer_tag2:`Acheteur · 2h`,role_final_tag:`Acheteur + Chimalix`,
+    tag_active:`Actif`,tag_pending:`En attente`,tag_final:`Final`,
+    venues_label:`Couverture complète`,venues_title:`16 stades. 3 pays. Une seule passion.`,
+    venues_sub:`Trouvez des billets pour tous les matchs de la FIFA World Cup 2026™, de la phase de groupes à la grande finale à New York.`,
+    testi_label:`Communauté`,testi_title:`Ce que disent nos utilisateurs`,
+    t1_quote:`"J'ai acheté 2 billets pour Mexique vs Argentine. Le processus en 8 étapes m'a donné une totale confiance. J'ai payé seulement quand les billets étaient chez Chimalix."`,t1_loc:`Mexico City`,
+    t2_quote:`"En tant que vendeur, j'ai reçu mon paiement en 5 jours ouvrables. La plateforme est transparente — les acheteurs font confiance et j'ai obtenu mon prix."`,t2_loc:`Paris, France`,
+    t3_quote:`"J'ai trouvé des places en Cat 1 pour la finale à un prix raisonnable. Le suivi en temps réel m'a rassuré à chaque étape."`,t3_loc:`Lyon, France`,
+    t4_quote:`"J'ai vendu 4 billets pour la demi-finale à Dallas. La transparence du processus m'a convaincu. Les acheteurs paient, je reçois."`,t4_loc:`Monterrey, Mexique`,
+    cta_title:`Prêt à vivre la Coupe du Monde ?`,cta_sub:`Rejoignez des milliers d'acheteurs et de vendeurs qui font confiance à Chimalix pour le plus grand événement sportif du monde.`,cta_btn:`Explorer les billets maintenant`,
+    faq_label:`Questions fréquentes`,faq_title:`Tout ce que vous devez savoir`,faq_sub:`Des questions ? Voici les réponses les plus courantes sur Chimalix.`,
+    footer_col1:`Plateforme`,footer_col2:`Information`,footer_col3:`Support`,
+    fl1:`Acheter des billets`,fl2:`Vendre des billets`,fl3:`Mes transactions`,fl4:`Comment ça marche`,fl5:`Sécurité`,fl6:`FAQ`,fl7:`Contact`,fl8:`Conditions d'utilisation`,fl9:`Confidentialité`,
+    footer_desc:`Votre entrée sécurisée pour la FIFA World Cup 2026™. Escrow vérifié. Prix final garanti.`,
+    footer_rights:`Tous droits réservés.`,footer_disclaimer:`FIFA World Cup 2026™ est une marque déposée de la FIFA. Chimalix n'est pas un affilié officiel de la FIFA.`
+  }
+};
+
+const FAQS = {
+  es: [
+    [`¿Qué es el escrow de 8 pasos de Chimalix?`,`El escrow es un proceso de custodia neutral donde Chimalix actúa como intermediario. En 8 pasos verificados, garantizamos que el comprador recibe su boleto antes de que el vendedor reciba el dinero.`],
+    [`¿El precio publicado incluye todos los cargos?`,`Sí. El precio que ves es el precio final que pagas. Chimalix no cobra comisiones adicionales al comprador. La comisión de plataforma corre a cargo del vendedor.`],
+    [`¿Cómo sé que los boletos son auténticos?`,`Todos los boletos pasan por nuestra cuenta custodio FIFA antes de que el comprador realice cualquier pago. Verificamos su validez directamente en la plataforma oficial de FIFA.`],
+    [`¿Qué pasa si el vendedor no entrega los boletos?`,`Si el vendedor no transfiere los boletos a Chimalix dentro del plazo establecido, la transacción se cancela automáticamente y el comprador no realiza ningún pago. Tu dinero nunca está en riesgo.`],
+    [`¿Cuánto tiempo tarda el vendedor en recibir su pago?`,`Una vez que el comprador confirma la recepción correcta de los boletos (Paso 7), el pago neto se libera al vendedor en un plazo máximo de 5 días hábiles.`],
+    [`¿Puedo vender boletos de cualquier partido del Mundial?`,`Sí. Chimalix cubre los 104 partidos del FIFA World Cup 2026 en los 16 estadios de México, Estados Unidos y Canadá.`]
+  ],
+  en: [
+    [`What is Chimalix's 8-step escrow?`,`Escrow is a neutral custody process where Chimalix acts as an intermediary. In 8 verified steps, we guarantee that the buyer receives their ticket before the seller receives the money.`],
+    [`Does the listed price include all charges?`,`Yes. The price you see is the final price you pay. Chimalix does not charge additional fees to the buyer. The platform commission is charged to the seller.`],
+    [`How do I know the tickets are authentic?`,`All tickets go through our FIFA custodial account before the buyer makes any payment. We verify their validity directly on the official FIFA platform.`],
+    [`What happens if the seller does not deliver the tickets?`,`If the seller does not transfer the tickets to Chimalix within the established timeframe, the transaction is automatically cancelled and the buyer makes no payment.`],
+    [`How long does it take for the seller to receive payment?`,`Once the buyer confirms correct receipt of the tickets (Step 7), the net payment is released to the seller within a maximum of 5 business days.`],
+    [`Can I sell tickets for any World Cup match?`,`Yes. Chimalix covers all 104 matches of the FIFA World Cup 2026 across 16 stadiums in Mexico, the United States and Canada.`]
+  ],
+  fr: [
+    [`Qu'est-ce que l'escrow en 8 étapes de Chimalix ?`,`L'escrow est un processus de garde neutre où Chimalix agit comme intermédiaire. En 8 étapes vérifiées, nous garantissons que l'acheteur reçoit son billet avant que le vendeur ne reçoive l'argent.`],
+    [`Le prix affiché inclut-il tous les frais ?`,`Oui. Le prix que vous voyez est le prix final que vous payez. Chimalix ne facture pas de frais supplémentaires à l'acheteur. La commission de plateforme est à la charge du vendeur.`],
+    [`Comment savoir si les billets sont authentiques ?`,`Tous les billets passent par notre compte dépositaire FIFA avant que l'acheteur effectue tout paiement. Nous vérifions leur validité directement sur la plateforme officielle FIFA.`],
+    [`Que se passe-t-il si le vendeur ne livre pas les billets ?`,`Si le vendeur ne transfère pas les billets à Chimalix dans le délai établi, la transaction est automatiquement annulée et l'acheteur n'effectue aucun paiement.`],
+    [`Combien de temps faut-il au vendeur pour recevoir son paiement ?`,`Une fois que l'acheteur confirme la bonne réception des billets (Étape 7), le paiement net est libéré au vendeur dans un délai maximum de 5 jours ouvrables.`],
+    [`Puis-je vendre des billets pour n'importe quel match de la Coupe du Monde ?`,`Oui. Chimalix couvre les 104 matchs de la FIFA World Cup 2026 dans 16 stades au Mexique, aux États-Unis et au Canada.`]
+  ]
+};
+
+function renderFaqs(lang) {
+  var list = document.getElementById('faq-list');
+  if (!list) return;
+  list.innerHTML = '';
+  var data = FAQS[lang] || FAQS.es;
+  data.forEach(function(faq) {
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'background:#fff;border:1px solid rgba(10,132,255,.14);border-radius:16px;overflow:hidden';
+    var btn = document.createElement('button');
+    btn.style.cssText = 'width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:transparent;border:none;cursor:pointer;text-align:left;font-family:Montserrat,sans-serif;font-weight:700;font-size:.93rem;color:#121212;line-height:1.4';
+    btn.setAttribute('type', 'button');
+    var qtxt = document.createElement('span');
+    qtxt.textContent = faq[0];
+    btn.appendChild(qtxt);
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '18'); svg.setAttribute('height', '18');
+    svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', '#0A84FF'); svg.setAttribute('stroke-width', '2.5');
+    svg.setAttribute('stroke-linecap', 'round'); svg.setAttribute('stroke-linejoin', 'round');
+    svg.style.cssText = 'flex-shrink:0;transition:transform .28s ease';
+    var poly = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    poly.setAttribute('points', '6 9 12 15 18 9');
+    svg.appendChild(poly);
+    btn.appendChild(svg);
+    var body = document.createElement('div');
+    body.style.cssText = 'max-height:0;overflow:hidden;transition:max-height .35s ease';
+    var p = document.createElement('p');
+    p.style.cssText = 'margin:0;padding:16px 24px 20px;font-size:.88rem;color:#555;line-height:1.7;border-top:1px solid rgba(10,132,255,.08)';
+    p.textContent = faq[1];
+    body.appendChild(p);
+    btn.addEventListener('click', (function(arrow, bd) {
+      return function() {
+        var isOpen = bd.style.maxHeight !== '0px' && bd.style.maxHeight !== '';
+        document.querySelectorAll('.chi-faq-body').forEach(function(b) { b.style.maxHeight = '0'; });
+        document.querySelectorAll('.chi-faq-arrow').forEach(function(a) { a.style.transform = ''; });
+        if (!isOpen) { bd.style.maxHeight = bd.scrollHeight + 'px'; arrow.style.transform = 'rotate(180deg)'; }
+      };
+    })(svg, body));
+    body.classList.add('chi-faq-body');
+    svg.classList.add('chi-faq-arrow');
+    wrap.appendChild(btn);
+    wrap.appendChild(body);
+    list.appendChild(wrap);
+  });
+}
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.textContent === lang.toUpperCase());
+  });
+  var d = LANGS[lang];
+  if (!d) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  renderFaqs(lang);
+  document.documentElement.lang = lang;
+}
+
+document.addEventListener('DOMContentLoaded', function() { setLang('es'); });
+</script>
+</body>
+</html>
