@@ -133,12 +133,12 @@ svg.icon{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-line
 <section class="hero">
   <div class="hero-blob blob1"></div><div class="hero-blob blob2"></div><div class="hero-blob blob3"></div>
   <div style="position:relative;z-index:1;width:100%">
-    <div class="hero-badge"><div class="badge-dot"></div><span data-i18n="hero_badge">FIFA World Cup 2026™ · Escrow garantizado</span></div>
+    <div class="hero-badge"><div class="badge-dot"></div><span data-i18n="hero_badge">FIFA World Cup 2026™ · Pago protegido garantizado</span></div>
     <h1 data-i18n="hero_h1">Tu boleto al Mundial.<br/><span class="chi-grad-text">Sin riesgos. Sin sorpresas.</span></h1>
     <p data-i18n="hero_p">Compra y vende boletos para el FIFA World Cup 2026™ con protección escrow de 8 pasos.</p>
     <div class="hero-btns">
       <button class="btn-primary" data-i18n="hero_btn1" onclick="window.open('https://app.chimalix.com','_blank')">Explorar boletos</button>
-      <button class="btn-ghost" data-i18n="hero_btn2">¿Cómo funciona?</button>
+      <button class="btn-ghost" data-i18n="hero_btn2" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">¿Cómo funciona?</button>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><strong>16</strong><span data-i18n="stat1">Estadios</span></div>
@@ -150,7 +150,7 @@ svg.icon{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-line
 
 <!-- Trust bar + CTA -->
 <div class="trust-bar">
-  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-i18n="trust1">Escrow verificado</span></div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-i18n="trust1">Pago protegido</span></div>
   <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span data-i18n="trust2">Sin cargos extra al comprador</span></div>
   <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-i18n="trust3">Boletos FIFA verificados</span></div>
   <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="trust4">Rastreo en tiempo real</span></div>
@@ -164,7 +164,7 @@ svg.icon{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-line
 <section class="how-bg" id="como-funciona">
   <div class="center">
     <div class="section-label" data-i18n="how_label">Proceso protegido</div>
-    <h2 class="section-title" data-i18n="how_title">Escrow de 8 pasos.<br/>Tu dinero, seguro siempre.</h2>
+    <h2 class="section-title" data-i18n="how_title">Compra protegida en 8 pasos.<br/>Tu dinero, seguro siempre.</h2>
     <p class="section-sub" data-i18n="how_sub">Ni el vendedor recibe el dinero sin entregar el boleto, ni el comprador entrega el dinero sin recibirlo.</p>
   </div>
   <div class="steps-grid">
@@ -203,7 +203,7 @@ svg.icon{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-line
 </div>
 
 <!-- Escrow section + CTA -->
-<div class="escrow-section">
+<div class="escrow-section" id="seguridad">
   <div>
     <div class="section-label" data-i18n="esc_label">Seguridad total</div>
     <h2 class="section-title" data-i18n="esc_title">Tu dinero no se mueve hasta que tu boleto llegue.</h2>
@@ -264,7 +264,7 @@ svg.icon{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-line
 </div>
 
 <!-- FAQ + CTA -->
-<section style="background:#F7FBFF">
+<section style="background:#F7FBFF" id="faq">
   <div class="center" style="margin-bottom:48px">
     <div class="section-label" data-i18n="faq_label">Preguntas frecuentes</div>
     <h2 class="section-title" data-i18n="faq_title">Todo lo que necesitas saber</h2>
@@ -291,8 +291,8 @@ svg.icon{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-line
       <p data-i18n="footer_desc">Tu entrada segura al FIFA World Cup 2026™. Escrow verificado.</p>
     </div>
     <div class="footer-links"><h5 data-i18n="footer_col1">Plataforma</h5><a href="https://app.chimalix.com" target="_blank" data-i18n="fl1">Comprar boletos</a><a href="https://app.chimalix.com" target="_blank" data-i18n="fl2">Vender boletos</a><a href="https://app.chimalix.com" target="_blank" data-i18n="fl3">Mis transacciones</a></div>
-    <div class="footer-links"><h5 data-i18n="footer_col2">Información</h5><a href="#" data-i18n="fl4">Cómo funciona</a><a href="#" data-i18n="fl5">Seguridad</a><a href="#" data-i18n="fl6">Preguntas frecuentes</a></div>
-    <div class="footer-links"><h5 data-i18n="footer_col3">Soporte</h5><a href="#" data-i18n="fl7">Contacto</a><a href="#" data-i18n="fl8">Términos de servicio</a><a href="#" data-i18n="fl9">Privacidad</a></div>
+    <div class="footer-links"><h5 data-i18n="footer_col2">Información</h5><a href="#como-funciona" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'});return false;" data-i18n="fl4">Cómo funciona</a><a href="#seguridad" onclick="document.getElementById('seguridad').scrollIntoView({behavior:'smooth'});return false;" data-i18n="fl5">Seguridad</a><a href="#faq" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'});return false;" data-i18n="fl6">Preguntas frecuentes</a></div>
+    <div class="footer-links"><h5 data-i18n="footer_col3">Soporte</h5><a href="mailto:contacto@chimalix.com" data-i18n="fl7">Contacto</a><a href="https://chimalix.com/terms" target="_blank" data-i18n="fl8">Términos de servicio</a><a href="https://chimalix.com/privacy" target="_blank" data-i18n="fl9">Privacidad</a></div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Chimalix. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
@@ -303,12 +303,12 @@ svg.icon{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-line
 <script>
 const LANGS = {
   es: {
-    tagline:`Tu Entrada Segura`,nav_cta:`Entrar a la plataforma`,hero_badge:`FIFA World Cup 2026™ · Escrow garantizado`,
+    tagline:`Tu Entrada Segura`,nav_cta:`Entrar a la plataforma`,    hero_badge:`FIFA World Cup 2026™ · Pago protegido garantizado`,
     hero_h1:`Tu boleto al Mundial.<br/><span class="chi-grad-text">Sin riesgos.<br/>Sin sorpresas.</span>`,
-    hero_p:`Compra y vende boletos para el FIFA World Cup 2026™ con protección escrow de 8 pasos. El precio publicado es el precio final.`,
+    hero_p:`Compra y vende boletos para el FIFA World Cup 2026™ con pago protegido de 8 pasos. El precio publicado es el precio final.`,
     hero_btn1:`Explorar boletos`,hero_btn2:`¿Cómo funciona?`,stat1:`Estadios`,stat2:`Selecciones`,stat5:`Partidos`,
-    trust1:`Escrow verificado`,trust2:`Sin cargos extra al comprador`,trust3:`Boletos FIFA verificados`,trust4:`Rastreo en tiempo real`,trust5:`Vendedores calificados`,
-    how_label:`Proceso protegido`,how_title:`Escrow de 8 pasos.<br/>Tu dinero, seguro siempre.`,
+    trust1:`Pago protegido`,trust2:`Sin cargos extra al comprador`,trust3:`Boletos FIFA verificados`,trust4:`Rastreo en tiempo real`,trust5:`Vendedores calificados`,
+    how_label:`Proceso protegido`,    how_title:`Compra protegida en 8 pasos.<br/>Tu dinero, seguro siempre.`,
     how_sub:`Ni el vendedor recibe el dinero sin entregar el boleto, ni el comprador entrega el dinero sin recibirlo. Chimalix actúa como árbitro neutral en todo momento.`,
     role_buyer:`Comprador`,role_seller:`Vendedor`,role_platform:`Chimalix`,
     s1_title:`Compromiso de compra`,s1_desc:`El comprador se compromete formalmente a la transacción.`,
@@ -347,7 +347,7 @@ const LANGS = {
     faq_label:`Preguntas frecuentes`,faq_title:`Todo lo que necesitas saber`,faq_sub:`Aquí están las respuestas más comunes sobre Chimalix.`,
     footer_col1:`Plataforma`,footer_col2:`Información`,footer_col3:`Soporte`,
     fl1:`Comprar boletos`,fl2:`Vender boletos`,fl3:`Mis transacciones`,fl4:`Cómo funciona`,fl5:`Seguridad`,fl6:`Preguntas frecuentes`,fl7:`Contacto`,fl8:`Términos de servicio`,fl9:`Privacidad`,
-    footer_desc:`Tu entrada segura al FIFA World Cup 2026™. Escrow verificado. Precio final garantizado.`,
+    footer_desc:`Tu entrada segura al FIFA World Cup 2026™. Pago protegido. Precio final garantizado.`,
     footer_rights:`Todos los derechos reservados.`,footer_disclaimer:`FIFA World Cup 2026™ es marca registrada de FIFA. Chimalix no es afiliado oficial de FIFA.`
   },
   en: {
@@ -450,14 +450,14 @@ const LANGS = {
 
 const FAQS = {
   es: [
-    [`¿Qué es el escrow de 8 pasos de Chimalix?`,`El escrow es un proceso de custodia neutral donde Chimalix actúa como intermediario. En 8 pasos verificados, garantizamos que el comprador recibe su boleto antes de que el vendedor reciba el dinero.`],
+    [`¿Qué es el pago protegido de 8 pasos de Chimalix?`,`El pago protegido es un proceso de custodia neutral donde Chimalix actúa como intermediario. En 8 pasos verificados, garantizamos que el comprador recibe su boleto antes de que el vendedor reciba el dinero.`],
     [`¿El precio publicado incluye todos los cargos?`,`Sí. El precio que ves es el precio final que pagas. Chimalix no cobra comisiones adicionales al comprador. La comisión de plataforma corre a cargo del vendedor.`],
     [`¿Cómo sé que los boletos son auténticos?`,`Todos los boletos pasan por nuestra cuenta custodio FIFA antes de que el comprador realice cualquier pago. Verificamos su validez directamente en la plataforma oficial de FIFA.`],
     [`¿Qué pasa si el vendedor no entrega los boletos?`,`Si el vendedor no transfiere los boletos a Chimalix dentro del plazo establecido, la transacción se cancela automáticamente y el comprador no realiza ningún pago. Tu dinero nunca está en riesgo.`],
     [`¿Cuánto tiempo tarda el vendedor en recibir su pago?`,`Una vez que el comprador confirma la recepción correcta de los boletos (Paso 7), el pago neto se libera al vendedor en un plazo máximo de 5 días hábiles.`],
     [`¿Puedo vender boletos de cualquier partido del Mundial?`,`Sí. Chimalix cubre los 104 partidos del FIFA World Cup 2026 en los 16 estadios de México, Estados Unidos y Canadá.`],
     [`¿Mi dinero está seguro?`,`¡Claro! No pagas hasta que Chimalix tiene los boletos en su cuenta de custodia de FIFA. Si el vendedor no nos los transfiere, tú no desembolsas un solo peso.`],
-    [`¿Cuánto tiempo dura todo el proceso desde que muestro interés de compra hasta que tengo los boletos en mi cuenta FIFA?`,`Desde 2 horas hasta 24 horas dependiendo de la agilidad de las tres partes en los 8 pasos escrow.`],
+    [`¿Cuánto tiempo dura todo el proceso desde que muestro interés de compra hasta que tengo los boletos en mi cuenta FIFA?`,`Desde 2 horas hasta 24 horas dependiendo de la agilidad de las tres partes en los 8 pasos de compra protegida.`],
     [`¿Desde dónde puedo vender y comprar?`,`Desde cualquier parte del mundo. La primera etapa de lanzamiento funcionará con pagos SPEI en México, pero desde el 10 de mayo podrás pagar con tarjeta de débito o crédito desde cualquier parte del mundo.`]
   ],
   en: [
